@@ -113,9 +113,9 @@ const Eligible = () => {
 
 
   return (
-    <div className='p-20 bg-slate-300'>
-      <h1 className="text-center text-5xl">Are You Eligible to Study BSc.CSIT?</h1>
-      <h3 className="text-center text-2xl p-3">Let's Check!</h3>
+    <div id='wholediv' className='p-20 '>
+      <h1 className="text-center text-5xl font-black text-blue-950">Are You Eligible to Study BSc.CSIT?</h1>
+      <h3 className="text-center text-2xl p-3 font-black text-blue-950">Let's Check!</h3>
 
       <div className="mx-8">
         <form action="" className='w-full p-10 rounded-lg shadow-xl bg-orange-300 text-center'>
@@ -150,9 +150,9 @@ const Eligible = () => {
 
 
             
-          <div className="flex justify-around items-center ">
+          <div id='schoolingwhole' className="flex justify-around items-center ">
           <div className="pt-4 pb-4">
-            <p>Completed Your 12 years Of schooling?</p>
+            <p>Completed Your 12 years of Schooling?</p>
             <div className="flex justify-center gap-14 ">
               <div className='w-4 '>
                 <input

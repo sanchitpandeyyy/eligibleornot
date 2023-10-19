@@ -7,4 +7,18 @@
     }
 
 
+
+
+}
+
+
+@media screen and (max-width:550px){
+    #wholediv{
+        padding: 50px 0%;
+    }
+
+    #schoolingwhole{
+        display: flex;
+        flex-direction: column;
+    }
 }
