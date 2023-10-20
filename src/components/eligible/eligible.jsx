@@ -121,7 +121,7 @@ const Eligible = () => {
       <div id='sectext' className="text-center text-2xl p-3 font-black text-blue-950">Let's Check!</div>
 
       <div className="mx-8">
-        <form action="" className='w-full  p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
+        <form action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
          <div className="flex flex-col items-center">
           <label htmlFor="name">Full Name:</label>
           <input
@@ -133,7 +133,7 @@ const Eligible = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {formErrors.name && <p className="text-red-400">{formErrors.name}</p>}
+          {formErrors.name && <p className="text-red-400 font-black">{formErrors.name}</p>}
           </div>
 
           <div className="flex flex-col items-center">
@@ -148,7 +148,7 @@ const Eligible = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {formErrors.email && <p className="text-red-400">{formErrors.email}</p>}
+          {formErrors.email && <p className="text-red-400 font-black">{formErrors.email}</p>}
             </div>
 
 
@@ -179,7 +179,7 @@ const Eligible = () => {
                 />
                 No
                 
-                {formErrors.schoolingCompleted && <p className=" text-red-400 text-sm flex justify-center">{formErrors.schoolingCompleted}</p> }
+                {formErrors.schoolingCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p> }
                 
               </div>
               
@@ -189,7 +189,7 @@ const Eligible = () => {
           {schoolingCompleted === 'Yes' && (
           <div className="pt-4 pb-4 h-32">
               <p className="selectcourse">Your +2 Faculty</p>
-              <select id="course" className='rounded border-2 border-slate-300' required value={faculty} onChange={(e) => setFaculty(e.target.value)}>
+              <select id="course" className='rounded border-2 border-slate-300 text-gray-500' required value={faculty} onChange={(e) => setFaculty(e.target.value)}>
                 <option value="" >Courses</option>
                 <option value="1">Science</option>
                 <option value="2">Management</option>
@@ -197,7 +197,7 @@ const Eligible = () => {
                 <option value="4">Arts</option>
                 <option value="5">Humanities</option>
               </select>
-              {formErrors.faculty && <p className="text-red-400">{formErrors.faculty}</p>}
+              {formErrors.faculty && <p className="text-red-400 font-black">{formErrors.faculty}</p>}
             </div>
 
             )}
@@ -210,7 +210,7 @@ const Eligible = () => {
           <div className="flex justify-center" id='sub'>
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">English:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={english} onChange={(e) => setEnglish(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={english} onChange={(e) => setEnglish(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -221,12 +221,12 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.english && <p className="text-red-400">{formErrors.english}</p>}
+              {formErrors.english && <p className="text-red-400 font-black">{formErrors.english}</p>}
             </div>
 
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">Nepali:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={nepali} onChange={(e) => setNepali(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={nepali} onChange={(e) => setNepali(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -237,12 +237,12 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.nepali && <p className="text-red-400">{formErrors.nepali}</p>}
+              {formErrors.nepali && <p className="text-red-400 font-black">{formErrors.nepali}</p>}
             </div>
 
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">Mathematics:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={maths} onChange={(e) => setMath(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={maths} onChange={(e) => setMath(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -253,13 +253,13 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.maths && <p className="text-red-400">{formErrors.maths}</p>}
+              {formErrors.maths && <p className="text-red-400 font-black">{formErrors.maths}</p>}
             </div>
 
        
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">Physics:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={physics} onChange={(e) => setPhysics(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={physics} onChange={(e) => setPhysics(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -270,7 +270,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.physics && <p className="text-red-400">{formErrors.physics}</p>}
+              {formErrors.physics && <p className="text-red-400 font-black">{formErrors.physics}</p>}
               </div>
             </div>
             )}
@@ -281,7 +281,7 @@ const Eligible = () => {
 
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">Chemistry:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={chemistry} onChange={(e) => setChemistry(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={chemistry} onChange={(e) => setChemistry(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -292,12 +292,12 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.chemistry && <p className="text-red-400">{formErrors.chemistry}</p>}
+              {formErrors.chemistry && <p className="text-red-400 font-black">{formErrors.chemistry}</p>}
             </div>
 
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">Computer:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={computer} onChange={(e) => setComputer(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={computer} onChange={(e) => setComputer(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -308,13 +308,13 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.subjects && <p className="text-red-400">{formErrors.subjects}</p>}
+              {formErrors.subjects && <p className="text-red-400 font-black">{formErrors.subjects}</p>}
             </div>
 
                
             <div className="p-3 flex flex-col">
               <label htmlFor="grade-12">Biology:</label> 
-              <select className='rounded border-2 border-slate-300' id='grade'  value={biology} onChange={(e) => setBiology(e.target.value)}>
+              <select className='rounded border-2 border-slate-300 text-gray-500' id='grade'  value={biology} onChange={(e) => setBiology(e.target.value)}>
                 <option value="">Obtained Grade</option>
                 <option value="1">A+</option>
                 <option value="2">A</option>
@@ -325,7 +325,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.subjects && <p className="text-red-400">{formErrors.subjects}</p>}
+              {formErrors.subjects && <p className="text-red-400 font-black">{formErrors.subjects}</p>}
             </div>
 
 
