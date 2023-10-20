@@ -116,12 +116,12 @@ const Eligible = () => {
 
 
   return (
-    <div id='wholediv' className='p-20 '>
-      <h1 className="text-center text-5xl font-black text-blue-950">Are You Eligible to Study BSc.CSIT?</h1>
-      <h3 className="text-center text-2xl p-3 font-black text-blue-950">Let's Check!</h3>
+    <div id='wholediv' className=' p-20 '>
+      <div id='toptext' className="text-center text-5xl font-black text-blue-950">Are You Eligible to Study BSc.CSIT?</div>
+      <div id='sectext' className="text-center text-2xl p-3 font-black text-blue-950">Let's Check!</div>
 
       <div className="mx-8">
-        <form action="" className='w-full p-10 rounded-lg shadow-xl bg-orange-300 text-center'>
+        <form action="" className='w-full  p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
          <div className="flex flex-col items-center">
           <label htmlFor="name">Full Name:</label>
           <input
@@ -133,7 +133,7 @@ const Eligible = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {formErrors.name && <p className="text-red-500">{formErrors.name}</p>}
+          {formErrors.name && <p className="text-red-400">{formErrors.name}</p>}
           </div>
 
           <div className="flex flex-col items-center">
@@ -148,7 +148,7 @@ const Eligible = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {formErrors.email && <p className="text-red-500">{formErrors.email}</p>}
+          {formErrors.email && <p className="text-red-400">{formErrors.email}</p>}
             </div>
 
 
@@ -179,7 +179,7 @@ const Eligible = () => {
                 />
                 No
                 
-                {formErrors.schoolingCompleted && <p className=" text-red-500 text-sm flex justify-center">{formErrors.schoolingCompleted}</p> }
+                {formErrors.schoolingCompleted && <p className=" text-red-400 text-sm flex justify-center">{formErrors.schoolingCompleted}</p> }
                 
               </div>
               
@@ -197,7 +197,7 @@ const Eligible = () => {
                 <option value="4">Arts</option>
                 <option value="5">Humanities</option>
               </select>
-              {formErrors.faculty && <p className="text-red-500">{formErrors.faculty}</p>}
+              {formErrors.faculty && <p className="text-red-400">{formErrors.faculty}</p>}
             </div>
 
             )}
@@ -221,7 +221,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.english && <p className="text-red-500">{formErrors.english}</p>}
+              {formErrors.english && <p className="text-red-400">{formErrors.english}</p>}
             </div>
 
             <div className="p-3 flex flex-col">
@@ -237,7 +237,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.nepali && <p className="text-red-500">{formErrors.nepali}</p>}
+              {formErrors.nepali && <p className="text-red-400">{formErrors.nepali}</p>}
             </div>
 
             <div className="p-3 flex flex-col">
@@ -253,7 +253,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.maths && <p className="text-red-500">{formErrors.maths}</p>}
+              {formErrors.maths && <p className="text-red-400">{formErrors.maths}</p>}
             </div>
 
        
@@ -270,7 +270,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.physics && <p className="text-red-500">{formErrors.physics}</p>}
+              {formErrors.physics && <p className="text-red-400">{formErrors.physics}</p>}
               </div>
             </div>
             )}
@@ -292,7 +292,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.chemistry && <p className="text-red-500">{formErrors.chemistry}</p>}
+              {formErrors.chemistry && <p className="text-red-400">{formErrors.chemistry}</p>}
             </div>
 
             <div className="p-3 flex flex-col">
@@ -308,7 +308,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.subjects && <p className="text-red-500">{formErrors.subjects}</p>}
+              {formErrors.subjects && <p className="text-red-400">{formErrors.subjects}</p>}
             </div>
 
                
@@ -325,7 +325,7 @@ const Eligible = () => {
                 <option value="7">D</option>
                 <option value="8">NG</option>
               </select>
-              {formErrors.subjects && <p className="text-red-500">{formErrors.subjects}</p>}
+              {formErrors.subjects && <p className="text-red-400">{formErrors.subjects}</p>}
             </div>
 
 
@@ -335,7 +335,7 @@ const Eligible = () => {
 
           <button
             type="button"
-            className="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-xl hover:bg-blue-700 "
+            className="py-2 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-xl hover:bg-yellow-400 "
             onClick={handleCheckEligibility}
           >
             Check Eligibility
