@@ -3,6 +3,8 @@ import './eligible.css';
 
 
 const Eligible = () => {
+
+
   const [eligible, setEligible] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -26,6 +28,7 @@ const Eligible = () => {
 
     if (!name.trim()) {
       errors.name = 'Name is required';
+   
     }
 
     if (!email.trim() || !email.includes('@')) {
@@ -332,12 +335,14 @@ const Eligible = () => {
 
           <button
             type="button"
-            className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-xl hover:bg-blue-700 "
             onClick={handleCheckEligibility}
           >
             Check Eligibility
           </button>
+
         </form>
+        
 
         {showPopup && (
           <div className="text-center text-xl p-4">
