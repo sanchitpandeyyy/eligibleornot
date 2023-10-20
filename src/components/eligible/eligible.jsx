@@ -125,7 +125,7 @@ const Eligible = () => {
          <div className="flex flex-col items-center">
           <label htmlFor="name">Full Name:</label>
           <input
-            className='w-11/12 mb-4 p-2 rounded border-2 border-slate-300'
+            className='w-11/12 mb-4 p-2 rounded border-2 border-slate-300 text-black'
             type="text"
             id="name"
             placeholder="Your Name"
@@ -139,7 +139,7 @@ const Eligible = () => {
           <div className="flex flex-col items-center">
           <label htmlFor="email">Email:</label>
           <input
-            className='w-11/12 mb-4 p-2 rounded border-2 border-slate-300'
+            className='w-11/12 mb-4 p-2 rounded border-2 border-slate-300 text-black'
             type="email"
             id="email"
             name="email"
