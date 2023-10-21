@@ -20,7 +20,7 @@ const Eligible = () => {
   const [technicalPass, setTechnicalPass] = useState('');
   const [board, setBoard] = useState('');
   const [ctevtCompleted, setCtevtCompleted] = useState('');
-  const [percentagectevt, setPercentagectevt] = useState('');
+  const [takenPhysics, setTakenPhysics] = useState('');
   const [AlevelCompleted, setAlevelCompleted] = useState('');
   const [gradeAlevel, setGradeAlevel] = useState('');
   const [formErrors, setFormErrors] = useState({});
@@ -44,20 +44,20 @@ const Eligible = () => {
       errors.schoolingCompleted = 'You must have completed 12 years of schooling';
     }
 
-    if (!board) {
+    if (schoolingCompleted==='Yes' && !board) {
       errors.board = 'Please select your Examination board';
     }
 
-    if (board === '2' && ctevtCompleted !== 'Yes') {
-      errors.ctevtCompleted = 'You must have chosen Physics and Mathematics to be eligible for BSc.CSIT';
+    if (board === '2' && takenPhysics === "Yes" && !ctevtCompleted  ) {
+      errors.ctevtCompleted = 'Please select the above option';
     }
 
     if (board === '3' &&  AlevelCompleted !== 'Yes') {
       errors.AlevelCompleted = 'You must have chosen Physics and Mathematics to be eligible for BSc.CSIT';
     }
 
-    if (board === '2' && ctevtCompleted === 'Yes' && !percentagectevt) {
-      errors.percentagectevt = 'Please select Your Division';
+    if (board === '2' &&  takenPhysics !== 'Yes') {
+      errors.takenPhysics = 'You must have chosen Physics and Mathematics to be eligible for BSc.CSIT';
     }
 
     if (board === '3' && AlevelCompleted === 'Yes' && !gradeAlevel) {
@@ -146,10 +146,10 @@ const Eligible = () => {
 
         } 
         
-         // -----------CTEVT criteria-------- (NOT WORKING- no popup)
+         // -----------CTEVT criteria--------
         else if (board === '2') {
          
-          if ( validPercentages.includes(percentagectevt) && ctevtCompleted === 'Yes' )
+          if ( takenPhysics === 'Yes' && ctevtCompleted === 'Yes' )
           {
             setEligible(true);
           }
@@ -158,7 +158,7 @@ const Eligible = () => {
           }
         }
 
-         // -----------A LEVEL criteria-------- (NOT WORKING- no popup)
+         // -----------A LEVEL criteria-------- 
         else if (board === '3') {
           // A Level
           if (validAlevelgrades.includes(gradeAlevel) &&  AlevelCompleted === 'Yes' ) {
@@ -188,7 +188,7 @@ const Eligible = () => {
       setTechnicalPass('');
       setCtevtCompleted('');
       setAlevelCompleted('');
-      setPercentagectevt('');
+      setTakenPhysics('');
       setGradeAlevel('');
       setFormErrors({});
       setShowPopup(true);
@@ -270,9 +270,10 @@ const Eligible = () => {
                   />
                   No
 
-                  {formErrors.schoolingCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p>}
+                  
                 </div>
               </div>
+              {formErrors.schoolingCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p>}
             </div>
           </div> 
 
@@ -288,7 +289,7 @@ const Eligible = () => {
                 <option value="2">CTEVT</option>
                 <option value="3">A level</option>
               </select>
-              {formErrors.faculty && <p className="text-red-400 font-black">{formErrors.board}</p>}
+              {formErrors.board && <p className="text-red-400 font-black">{formErrors.board}</p>}
             </div>
           )}
 
@@ -523,6 +524,37 @@ const Eligible = () => {
                   <div className='w-4 '>
                     <input
                       type="radio"
+                      name="physicschems"
+                      required
+                      value="Yes"
+                      checked={takenPhysics === "Yes"}
+                      onChange={() => setTakenPhysics("Yes")}
+                    />
+                    Yes
+                  </div>
+                  <div className='w-4'>
+                    <input
+                      type="radio"
+                      name="physicschems"
+                      required
+                      value="No"
+                      checked={takenPhysics === "No"}
+                      onChange={() => setTakenPhysics("No")}
+                    />
+                    No
+
+                  </div>
+                </div>
+                {formErrors.takenPhysics && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.takenPhysics}</p>}
+              </div>
+
+            { takenPhysics==="Yes" && (
+              <div className="pt-4 pb-4">
+                <p>Have you passed in the rest of the subjects?</p>
+                <div className="flex justify-center gap-14 ">
+                  <div className='w-4 '>
+                    <input
+                      type="radio"
                       name="ctevt"
                       required
                       value="Yes"
@@ -542,24 +574,16 @@ const Eligible = () => {
                     />
                     No
 
-                    {formErrors.ctevtCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
+                    
                   </div>
                 </div>
+                {formErrors.ctevtCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
               </div>
-
-              <div className=''>
-                <p>Your Division:</p>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={percentagectevt} onChange={(e) => setPercentagectevt(e.target.value)}>
-                  <option value="">Obtained Division</option>
-                  <option value="1">Distinction</option>
-                  <option value="2">Division I</option>
-                  <option value="3">Division II</option>
-                  <option value="4">Division III</option>
-                  <option value="5">Fail</option>
-                </select>
-                {formErrors.percentagectevt && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.percentagectevt}</p>}
-              </div>
+              )}
+            
             </div>
+
+            
           )}
 
 
@@ -592,11 +616,14 @@ const Eligible = () => {
                     />
                     No
 
-                    {formErrors.AlevelCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
+                   
                   </div>
                 </div>
+                {formErrors.AlevelCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
               </div>
 
+
+            {AlevelCompleted === 'Yes' && (
               <div className=''>
                 <p>Your Grade:</p>
                 <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={gradeAlevel} onChange={(e) => setGradeAlevel(e.target.value)}>
@@ -610,7 +637,9 @@ const Eligible = () => {
                 </select>
                 {formErrors.gradeAlevel && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
               </div>
+              )}
             </div>
+            
           )}
 
 
