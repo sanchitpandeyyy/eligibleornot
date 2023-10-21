@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './eligible.css';
+import Name from '../../form/Name';
+import Email from '../../form/Email';
+import Schooling from '../../form/Schooling';
+import Board from '../../form/Board';
+import Faculty from '../../form/Faculty';
 
 const Eligible = () => {
 
@@ -25,6 +30,7 @@ const Eligible = () => {
   const [gradeAlevel, setGradeAlevel] = useState('');
   const [formErrors, setFormErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
+
 
  
   // --------FORM VALIDATION STARTED -------------
@@ -113,7 +119,7 @@ const Eligible = () => {
 
   const handleCheckEligibility = () => {
     const validGrades = ['1', '2', '3', '4', '5', '6'];
-    const validPercentages = ['1', '2', '3'];
+
     const validAlevelgrades = ['1', '2', '3','4','5'];
 
     if (validateForm()) {
@@ -205,92 +211,33 @@ const Eligible = () => {
 
 
       <div className="mx-8">
-        <form action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
+        <form id='formclear' action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
           
           
            {/* ------- NAME -------- */}
 
-          <div className="flex flex-col items-center">
-            <label htmlFor="name">Full Name:</label>
-            <input
-              className='w-11/12 mb-4 p-2 rounded border-2 border-slate-300 text-black'
-              type="text"
-              id="name"
-              placeholder="Your Name"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            {formErrors.name && <p className="text-black font-black">{formErrors.name}</p>}
-          </div>
-
+           <Name Nameame={name} setName={setName} formErrors={formErrors}/>
+  
 
             {/* ------- EMAIL -------- */}
 
-          <div className="flex flex-col items-center">
-            <label htmlFor="email">Email:</label>
-            <input
-              className='w-11/12 mb-4 p-2 rounded border-2 border-slate-300 text-black'
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {formErrors.email && <p className="text-black font-black">{formErrors.email}</p>}
-          </div>
+            <Email Email={email} setEmail={setEmail} formErrors={formErrors}/>
 
            {/* ------- 12 YEARS OF SCHOOLING -------- */}
 
           <div id='schoolingwhole' className="flex justify-around items-center ">
-            <div className="pt-4 pb-4">
-              <p>Completed Your 12 years of Schooling?</p>
-              <div className="flex justify-center gap-14 ">
-                <div className='w-4 '>
-                  <input
-                    type="radio"
-                    name="schooling"
-                    required
-                    value="Yes"
-                    checked={schoolingCompleted === 'Yes'}
-                    onChange={() => setSchoolingCompleted('Yes')}
-                  />
-                  Yes
-                </div>
-                <div className='w-4'>
-                  <input
-                    type="radio"
-                    name="schooling"
-                    required
-                    value="No"
-                    checked={schoolingCompleted === 'No'}
-                    onChange={() => setSchoolingCompleted('No')}
-                  />
-                  No
-
-                  
-                </div>
-              </div>
-              {formErrors.schoolingCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p>}
-            </div>
+           
+           <Schooling schoolingCompleted={schoolingCompleted} setSchoolingCompleted={setSchoolingCompleted} formErrors={formErrors}/>
          
 
 
                {/* ------- EXAMINATION BOARD -------- */}
 
           {schoolingCompleted === 'Yes' && (
-            <div className="pt-4 pb-4 h-32">
-              <p className="selectcourse">Examination Board</p>
-              <select id="course" className='rounded border-2 border-slate-300 text-gray-500' required value={board} onChange={(e) => setBoard(e.target.value)}>
-                <option value="">Board</option>
-                <option value="1">NEB</option>
-                <option value="2">CTEVT</option>
-                <option value="3">A level</option>
-              </select>
-              {formErrors.board && <p className="text-black font-black">{formErrors.board}</p>}
-            </div>
+ 
+           <Board board={board} setBoard={setBoard} formErrors={formErrors} />
+
+
           )}
           </div> 
  
@@ -298,19 +245,7 @@ const Eligible = () => {
           {/* ------- FACULTY -------- */}
 
           {schoolingCompleted === 'Yes' && board === '1' && (
-            <div className=" pb-2 h-32">
-              <p className="selectcourse">Your +2 Faculty</p>
-              <select id="course" className='rounded border-2 border-slate-300 text-gray-500' required value={faculty} onChange={(e) => setFaculty(e.target.value)}>
-                <option value="">Courses</option>
-                <option value="1">Science</option>
-                <option value="2">Technical</option>
-                <option value="3">Management</option>
-                <option value="4">Commerce</option>
-                <option value="5">Arts</option>
-                <option value="6">Humanities</option>
-              </select>
-              {formErrors.faculty && <p className="text-black font-black">{formErrors.faculty}</p>}
-            </div>
+           <Faculty faculty={faculty} setFaculty={setFaculty} formErrors={formErrors} />
           )}
 
 
