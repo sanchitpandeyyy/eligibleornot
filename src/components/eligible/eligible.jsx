@@ -17,13 +17,14 @@ const Eligible = () => {
   const [biology, setBiology] = useState('');
   const [faculty, setFaculty] = useState('');
   const [english, setEnglish] = useState('');
-  const [formErrors, setFormErrors] = useState({});
-  const [showPopup, setShowPopup] = useState(false);
+  const [technicalPass, setTechnicalPass] = useState('');
   const [board, setBoard] = useState('');
   const [ctevtCompleted, setCtevtCompleted] = useState('');
   const [percentagectevt, setPercentagectevt] = useState('');
   const [AlevelCompleted, setAlevelCompleted] = useState('');
   const [gradeAlevel, setGradeAlevel] = useState('');
+  const [formErrors, setFormErrors] = useState({});
+  const [showPopup, setShowPopup] = useState(false);
 
  
   // --------FORM VALIDATION STARTED -------------
@@ -63,8 +64,12 @@ const Eligible = () => {
       errors.gradeAlevel = 'Please select Your Grade';
     }
 
-    if (!faculty) {
+    if (board==='1' && !faculty) {
       errors.faculty = 'Please select your +2 faculty';
+    }
+
+    if (board==='1' && faculty=== '2' && !technicalPass){
+      errors.technicalPass = 'Please select the above option';
     }
 
     if (faculty === '1' && !english) {
@@ -80,6 +85,14 @@ const Eligible = () => {
     }
 
     if (faculty === '1' && !physics) {
+      errors.physics = 'Please select your Physics grade';
+    }
+
+    if (faculty === '2' && !maths) {
+      errors.maths = 'Please select your Mathematics grade';
+    }
+
+    if (faculty === '2' && !physics) {
       errors.physics = 'Please select your Physics grade';
     }
 
@@ -119,7 +132,15 @@ const Eligible = () => {
             faculty === '1') {
             setEligible(true);
           } 
-          else {
+          else if (
+          validGrades.includes(maths) &&
+          validGrades.includes(physics) && 
+          technicalPass=== 'Yes' && 
+          faculty === '2') 
+          {
+            setEligible(true);
+          }
+          else{
             setEligible(false);
           }
 
@@ -140,19 +161,22 @@ const Eligible = () => {
          // -----------A LEVEL criteria-------- (NOT WORKING- no popup)
         else if (board === '3') {
           // A Level
-          if ( validAlevelgrades.includes(gradeAlevel) &&  AlevelCompleted === 'Yes' ) {
+          if (validAlevelgrades.includes(gradeAlevel) &&  AlevelCompleted === 'Yes' ) {
             setEligible(true);
           } else {
             setEligible(false);
           }
         }
 
-      } else {
+      } 
+      else {
         setEligible(false);
       }
       setName('');
       setEmail('');
       setSchoolingCompleted('');
+      setBoard('');
+      setFaculty('');
       setNepali('');
       setMath('');
       setPhysics('');
@@ -161,6 +185,11 @@ const Eligible = () => {
       setBiology('');
       setFaculty('');
       setEnglish('');
+      setTechnicalPass('');
+      setCtevtCompleted('');
+      setAlevelCompleted('');
+      setPercentagectevt('');
+      setGradeAlevel('');
       setFormErrors({});
       setShowPopup(true);
     }
@@ -168,11 +197,19 @@ const Eligible = () => {
 
   return (
     <div id='wholediv' className=' p-20 '>
+
+    {/* ------- HEADER -------- */}
+
       <div id='toptext' className="text-center text-5xl font-black text-blue-950">Are You Eligible to Study BSc.CSIT?</div>
       <div id='sectext' className="text-center text-2xl p-3 font-black text-blue-950">Let's Check!</div>
 
+
       <div className="mx-8">
         <form action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
+          
+          
+           {/* ------- NAME -------- */}
+
           <div className="flex flex-col items-center">
             <label htmlFor="name">Full Name:</label>
             <input
@@ -186,6 +223,9 @@ const Eligible = () => {
             />
             {formErrors.name && <p className="text-red-400 font-black">{formErrors.name}</p>}
           </div>
+
+
+            {/* ------- EMAIL -------- */}
 
           <div className="flex flex-col items-center">
             <label htmlFor="email">Email:</label>
@@ -201,6 +241,8 @@ const Eligible = () => {
             />
             {formErrors.email && <p className="text-red-400 font-black">{formErrors.email}</p>}
           </div>
+
+           {/* ------- 12 YEARS OF SCHOOLING -------- */}
 
           <div id='schoolingwhole' className="flex justify-around items-center ">
             <div className="pt-4 pb-4">
@@ -232,7 +274,10 @@ const Eligible = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
+
+
+               {/* ------- EXAMINATION BOARD -------- */}
 
           {schoolingCompleted === 'Yes' && (
             <div className="pt-4 pb-4 h-32">
@@ -247,22 +292,32 @@ const Eligible = () => {
             </div>
           )}
 
-          {board === '1' && schoolingCompleted === 'Yes' &&(
-            <div className="pt-4 pb-4 h-32">
+ 
+
+          {/* ------- FACULTY -------- */}
+
+          {schoolingCompleted === 'Yes' && board === '1' && (
+            <div className=" pb-2 h-32">
               <p className="selectcourse">Your +2 Faculty</p>
               <select id="course" className='rounded border-2 border-slate-300 text-gray-500' required value={faculty} onChange={(e) => setFaculty(e.target.value)}>
                 <option value="">Courses</option>
                 <option value="1">Science</option>
-                <option value="2">Management</option>
-                <option value="3">Commerce</option>
-                <option value="4">Arts</option>
-                <option value="5">Humanities</option>
+                <option value="2">Technical</option>
+                <option value="3">Management</option>
+                <option value="4">Commerce</option>
+                <option value="5">Arts</option>
+                <option value="6">Humanities</option>
               </select>
               {formErrors.faculty && <p className="text-red-400 font-black">{formErrors.faculty}</p>}
             </div>
           )}
 
-          {faculty === '1' && board === '1' && (
+
+
+       {/* ------- SCIENCE SUBJECTS -------- */}
+
+
+          {board === '1' &&  faculty === '1' && (
             <div className="flex justify-center" id='sub'>
               <div className="p-3 flex flex-col">
                 <label htmlFor="grade-12">English:</label>
@@ -382,6 +437,84 @@ const Eligible = () => {
             </div>
           )}
 
+                        
+                        
+          {/* ------- TECHNICAL SUBJECTS -------- */}
+
+
+           {schoolingCompleted==='Yes' && board === '1' &&  faculty === '2' && (
+            <div className="flex justify-center" id='sub'>
+              <div className="p-3 flex flex-col">
+                <label htmlFor="grade-12">Physics:</label>
+                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={physics} onChange={(e) => setPhysics(e.target.value)}>
+                  <option value="">Obtained Grade</option>
+                  <option value="1">A+</option>
+                  <option value="2">A</option>
+                  <option value="3">B+</option>
+                  <option value="4">B</option>
+                  <option value="5">C+</option>
+                  <option value="6">C</option>
+                  <option value="7">D</option>
+                  <option value="8">NG</option>
+                </select>
+                {formErrors.physics && <p className="text-red-400 font-black">{formErrors.physics}</p>}
+              </div>
+
+              <div className="p-3 flex flex-col">
+                <label htmlFor="grade-12">Mathematics:</label>
+                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={maths} onChange={(e) => setMath(e.target.value)}>
+                  <option value="">Obtained Grade</option>
+                  <option value="1">A+</option>
+                  <option value="2">A</option>
+                  <option value="3">B+</option>
+                  <option value="4">B</option>
+                  <option value="5">C+</option>
+                  <option value="6">C</option>
+                  <option value="7">D</option>
+                  <option value="8">NG</option>
+                </select>
+                {formErrors.maths && <p className="text-red-400 font-black">{formErrors.maths}</p>}
+              </div>
+         
+              <div className="pt-4 pb-4">
+                <p>Have you passed in the rest of the subjects?</p>
+                <div className="flex justify-center gap-14 ">
+                  <div className='w-4 '>
+                    <input
+                      type="radio"
+                      name="technical"
+                      required
+                      value="Yes"
+                      checked={technicalPass === "Yes"}
+                      onChange={() => setTechnicalPass("Yes")}
+                    />
+                    Yes
+                  </div>
+                  <div className='w-4'>
+                    <input
+                      type="radio"
+                      name="technical"
+                      required
+                      value="No"
+                      checked={technicalPass === "No"}
+                      onChange={() => setTechnicalPass("No")}
+                    />
+                    No
+
+                  </div>
+                </div>
+                {formErrors.technicalPass && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.technicalPass}</p>}
+
+              </div>
+
+            </div>
+          
+          )}
+
+          
+
+                 {/* --------------- CTEVT SECTION  -------------- */}
+
           { schoolingCompleted==='Yes' && board === '2' && (
             <div>
               <div className="pt-4 pb-4">
@@ -429,6 +562,8 @@ const Eligible = () => {
             </div>
           )}
 
+
+           {/* ----------- A LEVEL SECTION ------------- */}
 
           { schoolingCompleted==='Yes' && board === '3' && (
             <div>
@@ -478,6 +613,8 @@ const Eligible = () => {
             </div>
           )}
 
+
+              {/* ---------- BUTTON ----------- */}
           <button
             type="button"
             className="py-2 mt-4 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-xl hover:bg-yellow-400 "
@@ -487,13 +624,16 @@ const Eligible = () => {
           </button>
         </form>
 
+          {/* ---------- POPUP ----------- */}
+
         {showPopup && (
           <div className="text-center text-xl p-4">
-            {eligible ? (
+           {eligible ? (
               <p>Congratulations! You are eligible to study BSc.CSIT.</p>
             ) : (
               <p>Sorry! You are unable to study BSc.CSIT.</p>
-            )}
+            )} 
+ 
           </div>
         )}
       </div>
