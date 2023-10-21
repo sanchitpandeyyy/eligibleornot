@@ -200,8 +200,8 @@ const Eligible = () => {
 
     {/* ------- HEADER -------- */}
 
-      <div id='toptext' className="text-center text-5xl font-black text-blue-950">Are You Eligible to Study BSc.CSIT?</div>
-      <div id='sectext' className="text-center text-2xl p-3 font-black text-blue-950">Let's Check!</div>
+      <div id='toptext' className="text-center text-5xl font-black text-white">Are You Eligible to Study BSc.CSIT?</div>
+      <div id='sectext' className="text-center text-2xl p-3 font-black text-white">Let's Check!</div>
 
 
       <div className="mx-8">
@@ -221,7 +221,7 @@ const Eligible = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            {formErrors.name && <p className="text-red-400 font-black">{formErrors.name}</p>}
+            {formErrors.name && <p className="text-black font-black">{formErrors.name}</p>}
           </div>
 
 
@@ -239,7 +239,7 @@ const Eligible = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {formErrors.email && <p className="text-red-400 font-black">{formErrors.email}</p>}
+            {formErrors.email && <p className="text-black font-black">{formErrors.email}</p>}
           </div>
 
            {/* ------- 12 YEARS OF SCHOOLING -------- */}
@@ -273,9 +273,9 @@ const Eligible = () => {
                   
                 </div>
               </div>
-              {formErrors.schoolingCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p>}
+              {formErrors.schoolingCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p>}
             </div>
-          </div> 
+         
 
 
                {/* ------- EXAMINATION BOARD -------- */}
@@ -289,10 +289,10 @@ const Eligible = () => {
                 <option value="2">CTEVT</option>
                 <option value="3">A level</option>
               </select>
-              {formErrors.board && <p className="text-red-400 font-black">{formErrors.board}</p>}
+              {formErrors.board && <p className="text-black font-black">{formErrors.board}</p>}
             </div>
           )}
-
+          </div> 
  
 
           {/* ------- FACULTY -------- */}
@@ -309,7 +309,7 @@ const Eligible = () => {
                 <option value="5">Arts</option>
                 <option value="6">Humanities</option>
               </select>
-              {formErrors.faculty && <p className="text-red-400 font-black">{formErrors.faculty}</p>}
+              {formErrors.faculty && <p className="text-black font-black">{formErrors.faculty}</p>}
             </div>
           )}
 
@@ -333,7 +333,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.english && <p className="text-red-400 font-black">{formErrors.english}</p>}
+                {formErrors.english && <p className="text-black font-black">{formErrors.english}</p>}
               </div>
 
               <div className="p-3 flex flex-col">
@@ -349,7 +349,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.nepali && <p className="text-red-400 font-black">{formErrors.nepali}</p>}
+                {formErrors.nepali && <p className="text-black font-black">{formErrors.nepali}</p>}
               </div>
 
               <div className="p-3 flex flex-col">
@@ -365,7 +365,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.maths && <p className="text-red-400 font-black">{formErrors.maths}</p>}
+                {formErrors.maths && <p className="text-black font-black">{formErrors.maths}</p>}
               </div>
 
               <div className="p-3 flex flex-col">
@@ -381,7 +381,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.physics && <p className="text-red-400 font-black">{formErrors.physics}</p>}
+                {formErrors.physics && <p className="text-black font-black">{formErrors.physics}</p>}
               </div>
             </div>
           )}
@@ -401,7 +401,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.chemistry && <p className="text-red-400 font-black">{formErrors.chemistry}</p>}
+                {formErrors.chemistry && <p className="text-black font-black">{formErrors.chemistry}</p>}
               </div>
 
               <div className="p-3 flex flex-col">
@@ -417,7 +417,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.subjects && <p className="text-red-400 font-black">{formErrors.subjects}</p>}
+                {formErrors.subjects && <p className="text-black font-black">{formErrors.subjects}</p>}
               </div>
 
               <div className="p-3 flex flex-col">
@@ -433,7 +433,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.subjects && <p className="text-red-400 font-black">{formErrors.subjects}</p>}
+                {formErrors.subjects && <p className="text-black font-black">{formErrors.subjects}</p>}
               </div>
             </div>
           )}
@@ -444,7 +444,7 @@ const Eligible = () => {
 
 
            {schoolingCompleted==='Yes' && board === '1' &&  faculty === '2' && (
-            <div className="flex justify-center" id='sub'>
+            <div className="flex justify-around" id='sub'>
               <div className="p-3 flex flex-col">
                 <label htmlFor="grade-12">Physics:</label>
                 <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={physics} onChange={(e) => setPhysics(e.target.value)}>
@@ -458,7 +458,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.physics && <p className="text-red-400 font-black">{formErrors.physics}</p>}
+                {formErrors.physics && <p className="text-black font-black">{formErrors.physics}</p>}
               </div>
 
               <div className="p-3 flex flex-col">
@@ -474,7 +474,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.maths && <p className="text-red-400 font-black">{formErrors.maths}</p>}
+                {formErrors.maths && <p className="text-black font-black">{formErrors.maths}</p>}
               </div>
          
               <div className="pt-4 pb-4">
@@ -504,7 +504,7 @@ const Eligible = () => {
 
                   </div>
                 </div>
-                {formErrors.technicalPass && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.technicalPass}</p>}
+                {formErrors.technicalPass && <p className=" text-black font-black text-sm flex justify-center">{formErrors.technicalPass}</p>}
 
               </div>
 
@@ -545,7 +545,7 @@ const Eligible = () => {
 
                   </div>
                 </div>
-                {formErrors.takenPhysics && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.takenPhysics}</p>}
+                {formErrors.takenPhysics && <p className=" text-black font-black text-sm flex justify-center">{formErrors.takenPhysics}</p>}
               </div>
 
             { takenPhysics==="Yes" && (
@@ -577,7 +577,7 @@ const Eligible = () => {
                     
                   </div>
                 </div>
-                {formErrors.ctevtCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
+                {formErrors.ctevtCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
               </div>
               )}
             
@@ -619,13 +619,13 @@ const Eligible = () => {
                    
                   </div>
                 </div>
-                {formErrors.AlevelCompleted && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
+                {formErrors.AlevelCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
               </div>
 
 
             {AlevelCompleted === 'Yes' && (
               <div className=''>
-                <p>Your Grade:</p>
+                <p>Your Overall Grade:</p>
                 <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={gradeAlevel} onChange={(e) => setGradeAlevel(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A*</option>
@@ -635,7 +635,7 @@ const Eligible = () => {
                   <option value="5">D</option>
                   <option value="6">E</option>
                 </select>
-                {formErrors.gradeAlevel && <p className=" text-red-400 font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
+                {formErrors.gradeAlevel && <p className=" text-black font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
               </div>
               )}
             </div>
@@ -656,9 +656,9 @@ const Eligible = () => {
           {/* ---------- POPUP ----------- */}
 
         {showPopup && (
-          <div className="text-center text-xl p-4">
+          <div className="text-center text-white font-black text-xl p-4">
            {eligible ? (
-              <p>Congratulations! You are eligible to study BSc.CSIT.</p>
+              <p>Congratulations! You are eligible to study BSc.CSIT according to criteria provided by TU IOST.</p>
             ) : (
               <p>Sorry! You are unable to study BSc.CSIT.</p>
             )} 
