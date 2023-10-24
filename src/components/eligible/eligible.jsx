@@ -5,6 +5,7 @@ import Email from '../../form/Email';
 import Schooling from '../../form/Schooling';
 import Board from '../../form/Board';
 import Faculty from '../../form/Faculty';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Eligible = () => {
 
@@ -30,6 +31,12 @@ const Eligible = () => {
   const [gradeAlevel, setGradeAlevel] = useState('');
   const [formErrors, setFormErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
+  const [recapcha, setRecapcha] = useState(false);
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    setRecapcha(true)
+  }
 
 
  
@@ -211,7 +218,7 @@ const Eligible = () => {
 
 
       <div className="mx-8">
-        <form id='formclear' action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-600 text-center'>
+        <form id='formclear' action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-700  text-center'>
           
           
            {/* ------- NAME -------- */}
@@ -578,9 +585,14 @@ const Eligible = () => {
           )}
 
 
+          <ReCAPTCHA
+           sitekey="6Ld72ccoAAAAAPnR5I3_J8Qm_LlNkRDuhgQAE6vV"
+          onChange={onChange}/>
+
+
               {/* ---------- BUTTON ----------- */}
           <button
-            type="button"
+            type="button" disabled={!recapcha}
             className="py-2 mt-4 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-xl hover:bg-yellow-400 "
             onClick={handleCheckEligibility}
           >
