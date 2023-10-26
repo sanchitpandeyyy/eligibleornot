@@ -17,7 +17,7 @@ const Input = ({ lable, placeholder, value, Name, setElement, formErrors }) => {
         required
       />
       {formErrors && (
-        <p className=" p-1 text-sm text-black font-black">
+        <p className=" font-black text-center text-xs mt-2 text-red-500 dark:text-yellow-400">
           {formErrors[`${Name}`]}
         </p>
       )}

@@ -13,7 +13,7 @@ const faculty = ({faculty,setFaculty,formErrors}) => {
       <option value="5">Arts</option>
       <option value="6">Humanities</option>
     </select>
-    {formErrors.faculty && <p className="text-black font-black">{formErrors.faculty}</p>}
+    {formErrors.faculty && <p className="font-black text-center text-xs mt-2 text-red-500 dark:text-yellow-400">{formErrors.faculty}</p>}
   </div>
   )
 }
