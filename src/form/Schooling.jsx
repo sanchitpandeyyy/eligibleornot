@@ -4,32 +4,7 @@ const Schooling = ({schoolingCompleted, setSchoolingCompleted, formErrors}) => {
   return (
     
     <div className="pt-4 pb-4 max-w-[35rem]">
-    {/* <p>Completed Your 12 years of Schooling?</p>
-    <div className="flex justify-center gap-14 ">
-      <div className='w-4 '>
-        <input
-          type="radio"
-          name="schooling"
-          required
-          value="Yes"
-          checked={schoolingCompleted === 'Yes'}
-          onChange={() => setSchoolingCompleted('Yes')}
-        />
-        Yes
-      </div>
-      <div className='w-4'>
-        <input
-          type="radio"
-          name="schooling"
-          required
-          value="No"
-          checked={schoolingCompleted === 'No'}
-          onChange={() => setSchoolingCompleted('No')}
-        />
-        No
 
-      </div>
-    </div> */}
 
     <h3 class="mb-4 font-semibold">Your Qualification</h3>
 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:flex">
