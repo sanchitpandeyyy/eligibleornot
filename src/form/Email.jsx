@@ -14,7 +14,7 @@ const Email = ({email, setEmail,formErrors}) => {
       value={email}
       onChange={(e) => setEmail(e.target.value)}
     />
-    {formErrors.email && <p className="text-black font-black">{formErrors.email}</p>}
+    {/* {formErrors.email && <p className="font-black text-xs mt-2 text-red-500 dark:text-yellow-400">{formErrors.email}</p>} */}
   </div>
   )
 }

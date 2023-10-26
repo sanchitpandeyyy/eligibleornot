@@ -40,7 +40,7 @@ const Schooling = ({schoolingCompleted, setSchoolingCompleted, formErrors}) => {
     </li>
 </ul>
 
-    {formErrors.schoolingCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.schoolingCompleted}</p>}
+    {formErrors.schoolingCompleted && <p className="font-black text-center text-xs mt-2 text-red-500 dark:text-yellow-400">{formErrors.schoolingCompleted}</p>}
   </div>
   )
 }
