@@ -212,7 +212,7 @@ const Eligible = () => {
            <NavBar/>
            </nav>
 
-           <div id='wholediv' className='text-gray-900 p-20 m-auto'></div>
+           <div id='wholediv' className='text-gray-900 p-20 pt-0 m-auto'></div>
 
 
       {/* ------- HEADER -------- */}
