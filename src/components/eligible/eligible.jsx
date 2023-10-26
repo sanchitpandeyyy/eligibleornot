@@ -5,6 +5,8 @@ import Board from '../../form/Board';
 import Faculty from '../../form/Faculty';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Input from '../../form/Input';
+import NavBar from '../Navbar/NavBar';
+
 
 const Eligible = () => {
 
@@ -203,7 +205,15 @@ const Eligible = () => {
     }
   };
   return (
-    <div id='wholediv' className='text-gray-900 p-20 max-w-[90rem] m-auto'>
+     <div className='dark:bg-blue-900'>
+
+
+      <nav className='w-full'>
+           <NavBar/>
+           </nav>
+
+           <div id='wholediv' className='text-gray-900 p-20 m-auto'></div>
+
 
       {/* ------- HEADER -------- */}
       <header>
@@ -215,7 +225,7 @@ const Eligible = () => {
 
       <div className="mx-8 ">
 
-        <form id='formclear' action="" className='w-full font-black p-10 rounded-lg shadow-xl bg-gradient-to-bl from-blue-200 to-cyan-200'>
+        <form id='formclear' action="" className='w-full font-black p-10 pt-5 rounded-lg shadow-xl bg-gradient-to-br from-blue-200 to-cyan-200 dark:from-blue-950 dark:to-blue-950 dark:text-gray-50'>
 
           <div class="grid gap-6 mb-6 md:grid-cols-2">
 
@@ -668,7 +678,7 @@ const Eligible = () => {
         {/* ---------- POPUP ----------- */}
 
         {showPopup && (
-          <div className="text-center text-white font-black text-xl p-4">
+          <div className="text-center text-gray-700 dark:text-white font-black text-xl p-4">
             {eligible ? (
               <p>Congratulations! You are eligible to study BSc.CSIT according to criteria provided by TU IOST.</p>
             ) : (
