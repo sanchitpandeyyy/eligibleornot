@@ -1,13 +1,39 @@
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
     
 
     #sub{
-       display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+     }
+
+
+
+}
+
+@media screen and (max-width:1160px) {
+    #ctevt{
+        display: flex;
+        flex-direction: column;
     }
 
+}
+
+@media screen and (max-width:945px) {
 
 
+
+    #schoolingwhole{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #alevel{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
@@ -16,10 +42,7 @@
         padding: 50px 0%;
     }
 
-    #schoolingwhole{
-        display: flex;
-        flex-direction: column;
-    }
+
 
     #toptext{
         font-size: xx-large;

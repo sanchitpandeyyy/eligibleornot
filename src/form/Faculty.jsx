@@ -2,7 +2,7 @@ import React from 'react'
 
 const faculty = ({faculty,setFaculty,formErrors}) => {
   return (
-    <div className=" pb-4 ">
+    <div className=" pb-4 flex flex-col justify-center items-center">
     <p className="selectcourse">Your +2 Faculty</p>
     <select id="course" className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2 text-center' required value={faculty} onChange={(e) => setFaculty(e.target.value)}>
       <option value="">Courses</option>
