@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './eligible.css';
-import Name from '../../form/Name';
-import Email from '../../form/Email';
 import Schooling from '../../form/Schooling';
 import Board from '../../form/Board';
 import Faculty from '../../form/Faculty';
 import ReCAPTCHA from 'react-google-recaptcha';
+import Input from '../../form/Input';
 
 const Eligible = () => {
 
@@ -39,7 +38,7 @@ const Eligible = () => {
   }
 
 
- 
+
   // --------FORM VALIDATION STARTED -------------
 
   const validateForm = () => {
@@ -54,22 +53,22 @@ const Eligible = () => {
     }
 
     if (schoolingCompleted !== 'Yes') {
-      errors.schoolingCompleted = 'You must have completed 12 years of schooling';
+      errors.schoolingCompleted = 'You must have completed +2/equivalent(CTEVT/A-Level/etc)';
     }
 
-    if (schoolingCompleted==='Yes' && !board) {
+    if (schoolingCompleted === 'Yes' && !board) {
       errors.board = 'Please select your Examination board';
     }
 
-    if (board === '2' && takenPhysics === "Yes" && !ctevtCompleted  ) {
+    if (board === '2' && takenPhysics === "Yes" && !ctevtCompleted) {
       errors.ctevtCompleted = 'Please select the above option';
     }
 
-    if (board === '3' &&  AlevelCompleted !== 'Yes') {
+    if (board === '3' && AlevelCompleted !== 'Yes') {
       errors.AlevelCompleted = 'You must have chosen Physics and Mathematics to be eligible for BSc.CSIT';
     }
 
-    if (board === '2' &&  takenPhysics !== 'Yes') {
+    if (board === '2' && takenPhysics !== 'Yes') {
       errors.takenPhysics = 'You must have chosen Physics and Mathematics to be eligible for BSc.CSIT';
     }
 
@@ -77,11 +76,11 @@ const Eligible = () => {
       errors.gradeAlevel = 'Please select Your Grade';
     }
 
-    if (board==='1' && !faculty) {
+    if (board === '1' && !faculty) {
       errors.faculty = 'Please select your +2 faculty';
     }
 
-    if (board==='1' && faculty=== '2' && !technicalPass){
+    if (board === '1' && faculty === '2' && !technicalPass) {
       errors.technicalPass = 'Please select the above option';
     }
 
@@ -127,14 +126,14 @@ const Eligible = () => {
   const handleCheckEligibility = () => {
     const validGrades = ['1', '2', '3', '4', '5', '6'];
 
-    const validAlevelgrades = ['1', '2', '3','4','5'];
+    const validAlevelgrades = ['1', '2', '3', '4', '5'];
 
     if (validateForm()) {
       if (schoolingCompleted === 'Yes') {
 
-         // -----NEB criteria-------- 
+        // -----NEB criteria-------- 
         if (board === '1') {
-         
+
           if (
             validGrades.includes(english) &&
             validGrades.includes(nepali) &&
@@ -144,44 +143,42 @@ const Eligible = () => {
             (validGrades.includes(computer) || validGrades.includes(biology)) &&
             faculty === '1') {
             setEligible(true);
-          } 
+          }
           else if (
-          validGrades.includes(maths) &&
-          validGrades.includes(physics) && 
-          technicalPass=== 'Yes' && 
-          faculty === '2') 
-          {
+            validGrades.includes(maths) &&
+            validGrades.includes(physics) &&
+            technicalPass === 'Yes' &&
+            faculty === '2') {
             setEligible(true);
           }
-          else{
+          else {
             setEligible(false);
           }
 
-        } 
-        
-         // -----------CTEVT criteria--------
+        }
+
+        // -----------CTEVT criteria--------
         else if (board === '2') {
-         
-          if ( takenPhysics === 'Yes' && ctevtCompleted === 'Yes' )
-          {
+
+          if (takenPhysics === 'Yes' && ctevtCompleted === 'Yes') {
             setEligible(true);
           }
-           else {
+          else {
             setEligible(false);
           }
         }
 
-         // -----------A LEVEL criteria-------- 
+        // -----------A LEVEL criteria-------- 
         else if (board === '3') {
           // A Level
-          if (validAlevelgrades.includes(gradeAlevel) &&  AlevelCompleted === 'Yes' ) {
+          if (validAlevelgrades.includes(gradeAlevel) && AlevelCompleted === 'Yes') {
             setEligible(true);
           } else {
             setEligible(false);
           }
         }
 
-      } 
+      }
       else {
         setEligible(false);
       }
@@ -207,60 +204,82 @@ const Eligible = () => {
       setShowPopup(true);
     }
   };
-
   return (
-    <div id='wholediv' className=' p-20 '>
+    <div id='wholediv' className='text-gray-900 p-20 max-w-[90rem] m-auto'>
 
-    {/* ------- HEADER -------- */}
+      {/* ------- HEADER -------- */}
+      <header>
+      <div id='toptext' className="text-blue-950 text-center text-5xl font-black">Are You Eligible to Study BSc.CSIT?</div>
+      <div id='sectext' className="text-center text-2xl p-3 font-black ">Let's Check!</div>
+      </header>
 
-      <div id='toptext' className="text-center text-5xl font-black text-white">Are You Eligible to Study BSc.CSIT?</div>
-      <div id='sectext' className="text-center text-2xl p-3 font-black text-white">Let's Check!</div>
 
 
       <div className="mx-8">
-        <form id='formclear' action="" className='w-full text-white font-black p-10 rounded-lg shadow-xl bg-blue-700  text-center'>
+
+        <form id='formclear' action="" className='w-full font-black p-10 rounded-lg shadow-xl bg-gradient-to-bl from-blue-200 to-cyan-200'>
+
+          <div class="grid gap-6 mb-6 md:grid-cols-2">
+
           
-          
-           {/* ------- NAME -------- */}
-
-           <Name Nameame={name} setName={setName} formErrors={formErrors}/>
-  
-
-            {/* ------- EMAIL -------- */}
-
-            <Email Email={email} setEmail={setEmail} formErrors={formErrors}/>
-
-           {/* ------- 12 YEARS OF SCHOOLING -------- */}
-
-          <div id='schoolingwhole' className="flex justify-around items-center ">
-           
-           <Schooling schoolingCompleted={schoolingCompleted} setSchoolingCompleted={setSchoolingCompleted} formErrors={formErrors}/>
-         
+          {/* ------- NAME -------- */}
+          <Input 
+          lable='Full Name' 
+          placeholder='Ram Thapa' 
+          value={name} 
+          Name='name' 
+          setElement={setName} 
+          formErrors={formErrors} />
 
 
-               {/* ------- EXAMINATION BOARD -------- */}
+          {/* ------- EMAIL -------- */}
+          <Input 
+          lable='Email' 
+          placeholder='ramlovecsit@gmail.com' 
+          value={email} 
+          Name='email' 
+          setElement={setEmail} 
+          formErrors={formErrors} />
 
-          {schoolingCompleted === 'Yes' && (
- 
-           <Board board={board} setBoard={setBoard} formErrors={formErrors} />
+          </div>
+
+          {/* <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+              <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+            </div>
+            <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+          </div>
+
+          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> */}
 
 
-          )}
-          </div> 
- 
+          {/* ------- 12 YEARS OF SCHOOLING -------- */}
+
+          <div id='schoolingwhole' className="">
+
+            <Schooling schoolingCompleted={schoolingCompleted} setSchoolingCompleted={setSchoolingCompleted} formErrors={formErrors} />
+
+            {/* ------- EXAMINATION BOARD -------- */}
+            {schoolingCompleted === 'Yes' && (
+
+              <Board board={board} setBoard={setBoard} formErrors={formErrors} />
+            )}
+          </div>
+
+
 
           {/* ------- FACULTY -------- */}
 
           {schoolingCompleted === 'Yes' && board === '1' && (
-           <Faculty faculty={faculty} setFaculty={setFaculty} formErrors={formErrors} />
+            <Faculty faculty={faculty} setFaculty={setFaculty} formErrors={formErrors} />
           )}
 
 
 
-       {/* ------- SCIENCE SUBJECTS -------- */}
+          {/* ------- SCIENCE SUBJECTS -------- */}
 
 
-          {board === '1' &&  faculty === '1' && (
+          {board === '1' && faculty === '1' && (
             <div className="flex justify-center" id='sub'>
               <div className="p-3 flex flex-col">
                 <label htmlFor="grade-12">English:</label>
@@ -380,12 +399,12 @@ const Eligible = () => {
             </div>
           )}
 
-                        
-                        
+
+
           {/* ------- TECHNICAL SUBJECTS -------- */}
 
 
-           {schoolingCompleted==='Yes' && board === '1' &&  faculty === '2' && (
+          {schoolingCompleted === 'Yes' && board === '1' && faculty === '2' && (
             <div className="flex justify-around" id='sub'>
               <div className="p-3 flex flex-col">
                 <label htmlFor="grade-12">Physics:</label>
@@ -418,7 +437,7 @@ const Eligible = () => {
                 </select>
                 {formErrors.maths && <p className="text-black font-black">{formErrors.maths}</p>}
               </div>
-         
+
               <div className="pt-4 pb-4">
                 <p>Have you passed in the rest of the subjects?</p>
                 <div className="flex justify-center gap-14 ">
@@ -451,14 +470,14 @@ const Eligible = () => {
               </div>
 
             </div>
-          
+
           )}
 
-          
 
-                 {/* --------------- CTEVT SECTION  -------------- */}
 
-          { schoolingCompleted==='Yes' && board === '2' && (
+          {/* --------------- CTEVT SECTION  -------------- */}
+
+          {schoolingCompleted === 'Yes' && board === '2' && (
             <div>
               <div className="pt-4 pb-4">
                 <p>Have you chosen Physics and Mathematics for your course?</p>
@@ -490,48 +509,48 @@ const Eligible = () => {
                 {formErrors.takenPhysics && <p className=" text-black font-black text-sm flex justify-center">{formErrors.takenPhysics}</p>}
               </div>
 
-            { takenPhysics==="Yes" && (
-              <div className="pt-4 pb-4">
-                <p>Have you passed in the rest of the subjects?</p>
-                <div className="flex justify-center gap-14 ">
-                  <div className='w-4 '>
-                    <input
-                      type="radio"
-                      name="ctevt"
-                      required
-                      value="Yes"
-                      checked={ctevtCompleted === "Yes"}
-                      onChange={() => setCtevtCompleted("Yes")}
-                    />
-                    Yes
-                  </div>
-                  <div className='w-4'>
-                    <input
-                      type="radio"
-                      name="ctevt"
-                      required
-                      value="No"
-                      checked={ctevtCompleted === "No"}
-                      onChange={() => setCtevtCompleted("No")}
-                    />
-                    No
+              {takenPhysics === "Yes" && (
+                <div className="pt-4 pb-4">
+                  <p>Have you passed in the rest of the subjects?</p>
+                  <div className="flex justify-center gap-14 ">
+                    <div className='w-4 '>
+                      <input
+                        type="radio"
+                        name="ctevt"
+                        required
+                        value="Yes"
+                        checked={ctevtCompleted === "Yes"}
+                        onChange={() => setCtevtCompleted("Yes")}
+                      />
+                      Yes
+                    </div>
+                    <div className='w-4'>
+                      <input
+                        type="radio"
+                        name="ctevt"
+                        required
+                        value="No"
+                        checked={ctevtCompleted === "No"}
+                        onChange={() => setCtevtCompleted("No")}
+                      />
+                      No
 
-                    
+
+                    </div>
                   </div>
+                  {formErrors.ctevtCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
                 </div>
-                {formErrors.ctevtCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
-              </div>
               )}
-            
+
             </div>
 
-            
+
           )}
 
 
-           {/* ----------- A LEVEL SECTION ------------- */}
+          {/* ----------- A LEVEL SECTION ------------- */}
 
-          { schoolingCompleted==='Yes' && board === '3' && (
+          {schoolingCompleted === 'Yes' && board === '3' && (
             <div>
               <div className="pt-4 pb-4">
                 <p>Have you chosen Physics and Mathematics for your course?</p>
@@ -558,39 +577,40 @@ const Eligible = () => {
                     />
                     No
 
-                   
+
                   </div>
                 </div>
                 {formErrors.AlevelCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
               </div>
 
 
-            {AlevelCompleted === 'Yes' && (
-              <div className=''>
-                <p>Your Overall Grade:</p>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={gradeAlevel} onChange={(e) => setGradeAlevel(e.target.value)}>
-                  <option value="">Obtained Grade</option>
-                  <option value="1">A*</option>
-                  <option value="2">A</option>
-                  <option value="3">B</option>
-                  <option value="4">C</option>
-                  <option value="5">D</option>
-                  <option value="6">E</option>
-                </select>
-                {formErrors.gradeAlevel && <p className=" text-black font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
-              </div>
+              {AlevelCompleted === 'Yes' && (
+                <div className=''>
+                  <p>Your Overall Grade:</p>
+                  <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={gradeAlevel} onChange={(e) => setGradeAlevel(e.target.value)}>
+                    <option value="">Obtained Grade</option>
+                    <option value="1">A*</option>
+                    <option value="2">A</option>
+                    <option value="3">B</option>
+                    <option value="4">C</option>
+                    <option value="5">D</option>
+                    <option value="6">E</option>
+                  </select>
+                  {formErrors.gradeAlevel && <p className=" text-black font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
+                </div>
               )}
             </div>
-            
+
           )}
 
 
           <ReCAPTCHA
-           sitekey="6Ld72ccoAAAAAPnR5I3_J8Qm_LlNkRDuhgQAE6vV"
-          onChange={onChange}/>
+            sitekey="6LeVBMgoAAAAAP4c26e6ujQxBzbAmTFxSPxYDul3"
+            //  sitekey="6Ld72ccoAAAAAPnR5I3_J8Qm_LlNkRDuhgQAE6vV"
+            onChange={onChange} />
 
 
-              {/* ---------- BUTTON ----------- */}
+          {/* ---------- BUTTON ----------- */}
           <button
             type="button" disabled={!recapcha}
             className="py-2 mt-4 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-xl hover:bg-yellow-400 "
@@ -600,16 +620,16 @@ const Eligible = () => {
           </button>
         </form>
 
-          {/* ---------- POPUP ----------- */}
+        {/* ---------- POPUP ----------- */}
 
         {showPopup && (
           <div className="text-center text-white font-black text-xl p-4">
-           {eligible ? (
+            {eligible ? (
               <p>Congratulations! You are eligible to study BSc.CSIT according to criteria provided by TU IOST.</p>
             ) : (
               <p>Sorry! You are unable to study BSc.CSIT.</p>
-            )} 
- 
+            )}
+
           </div>
         )}
       </div>
