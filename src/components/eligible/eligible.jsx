@@ -5,6 +5,7 @@ import Board from '../../form/Board';
 import Faculty from '../../form/Faculty';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Input from '../../form/Input';
+import NavBar from '../Navbar/NavBar';
 
 const Eligible = () => {
 
@@ -205,11 +206,16 @@ const Eligible = () => {
     }
   };
   return (
-    <div id='wholediv' className='text-gray-900 p-20 max-w-[90rem] m-auto'>
+    <>
+    <div className='dark:bg-blue-900 h-[100vh]'>
+        <nav className='w-full'>
+          <NavBar/>
+        </nav>
+        <div id='wholediv' className='text-gray-900 p-20 m-auto'>
 
       {/* ------- HEADER -------- */}
-      <header>
-      <div id='toptext' className="text-blue-950 text-center text-5xl font-black">Are You Eligible to Study BSc.CSIT?</div>
+      <header className='text-blue-950 dark:text-gray-50'>
+      <div id='toptext' className="text-center text-5xl font-black">Are You Eligible to Study BSc.CSIT?</div>
       <div id='sectext' className="text-center text-2xl p-3 font-black ">Let's Check!</div>
       </header>
 
@@ -217,9 +223,9 @@ const Eligible = () => {
 
       <div className="mx-8">
 
-        <form id='formclear' action="" className='w-full font-black p-10 rounded-lg shadow-xl bg-gradient-to-bl from-blue-200 to-cyan-200'>
+        <form id='formclear' action="" className='w-full font-black p-10 pt-5 rounded-lg shadow-xl bg-gradient-to-br from-blue-200 to-cyan-200 dark:from-blue-950 dark:to-blue-950 dark:text-gray-50'>
 
-          <div class="grid gap-6 mb-6 md:grid-cols-2">
+          <div class="grid gap-6 mb-6 md:grid-cols-2 mt-5">
 
           
           {/* ------- NAME -------- */}
@@ -634,6 +640,9 @@ const Eligible = () => {
         )}
       </div>
     </div>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quasi sit exercitationem alias ipsam vero provident hic iusto qui officia odio, laudantium quas magni atque accusantium. Aut rem quia quos nulla perferendis officiis cumque beatae, non saepe impedit dolorem et modi alias maxime culpa totam, distinctio autem! Doloremque repellendus saepe voluptas quasi tenetur assumenda deleniti eos nemo architecto, qui iste iure nesciunt? Debitis quae blanditiis dolorem ipsum sint unde voluptatem officiis mollitia, possimus cumque dignissimos, quo sunt ab accusamus itaque, amet iste cupiditate soluta. Eaque, beatae? Itaque velit veniam dolore saepe enim, placeat asperiores repellendus ea maiores facere impedit sit magni reiciendis tempore natus similique unde ullam corrupti voluptas ducimus alias officia rem est amet? A amet natus iusto quae vero quis saepe, atque earum molestiae animi quidem fugit, aperiam maxime itaque dolorem rem officia voluptatem laudantium error obcaecati. Perspiciatis veritatis perferendis ratione corporis nostrum dolorem ab, rerum necessitatibus voluptates, aut iure obcaecati beatae enim sint totam. Sunt impedit earum officia eos quibusdam est commodi. Quisquam natus distinctio minus ex. Tempora veniam veritatis exercitationem earum, non rem temporibus eos, nostrum vel, tenetur ad alias accusantium. Adipisci doloremque fugit et architecto. Dolorum quis quod tempora beatae architecto adipisci illum inventore laudantium voluptatum necessitatibus minima, atque velit veniam eius, molestiae ipsum. Asperiores facilis perspiciatis saepe nemo dolorem blanditiis officiis quisquam temporibus doloribus illo maiores deleniti sit, ut vero! Saepe fugiat ut commodi quam est, alias totam vel porro ducimus et sapiente tempore quod. Omnis dolorum autem sunt necessitatibus asperiores voluptatibus sit itaque, magnam maxime, maiores, ex dicta ipsa quasi tempore nesciunt minima? Labore provident officia nam quis delectus nesciunt at soluta dolorem eligendi officiis nostrum vero quibusdam illum, quasi mollitia repellat unde obcaecati! Suscipit aspernatur eos tenetur illum incidunt, error qui, pariatur, beatae provident odit quos vel sequi dolorem. Iste consequatur ab nobis maiores quisquam vitae quo sint, nisi, voluptatem repellat soluta unde placeat beatae culpa debitis. Veritatis, reiciendis. Quos illo, deserunt assumenda doloribus beatae exercitationem nesciunt consequatur dolorum officiis neque, at officia inventore rem numquam similique fugiat adipisci repellendus excepturi, optio sequi aliquam aperiam maiores sapiente nostrum! Autem cupiditate maiores dolore sint tempora ad magnam quos, voluptates pariatur consequuntur ducimus dolorum laborum placeat accusamus eaque sapiente qui modi itaque consectetur iste. Facilis explicabo earum voluptatum harum expedita at modi sed fugit, recusandae libero? Ullam at, reiciendis tempore ut ea aspernatur, dolorum fugit est atque molestias pariatur fuga laudantium distinctio velit consequatur quam veritatis? Tempore quibusdam nulla eos molestias nihil assumenda quas accusantium distinctio eum nemo. Accusamus iste est consequatur numquam, obcaecati aliquid quibusdam facilis minima voluptate harum veritatis optio delectus. Expedita autem corporis aliquam, molestiae iste maiores ad vel dolor harum accusamus quam ratione error eaque ipsum velit rem amet nostrum perferendis animi in! Incidunt facilis ut ducimus. Dolores quos molestias tempore. Optio nam veniam assumenda tenetur deserunt officiis, minus ut quae ducimus quisquam culpa aspernatur, quam, error blanditiis adipisci voluptate aliquid perferendis ratione? Necessitatibus quos repudiandae numquam, culpa molestias possimus vel ducimus cupiditate enim repellat recusandae odio? Inventore, animi aspernatur!
+    </div>
+    </>
   );
 };
 
