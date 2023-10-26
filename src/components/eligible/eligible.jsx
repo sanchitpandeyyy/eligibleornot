@@ -207,7 +207,7 @@ const Eligible = () => {
   };
   return (
     <>
-    <div className='dark:bg-blue-900 h-[100vh]'>
+    <div className='dark:bg-blue-900'>
         <nav className='w-full'>
           <NavBar/>
         </nav>
