@@ -48,9 +48,7 @@ const Eligible = () => {
       errors.name = 'Name is required';
     }
 
-    if (!email.trim() || !email.includes('@')) {
-      errors.email = 'Invalid email address';
-    }
+
 
     if (schoolingCompleted !== 'Yes') {
       errors.schoolingCompleted = 'You must have completed +2/equivalent(CTEVT/A-Level/etc)';
@@ -210,12 +208,12 @@ const Eligible = () => {
       {/* ------- HEADER -------- */}
       <header>
       <div id='toptext' className="text-blue-950 text-center text-5xl font-black">Are You Eligible to Study BSc.CSIT?</div>
-      <div id='sectext' className="text-center text-2xl p-3 font-black ">Let's Check!</div>
+      <div id='sectext' className="text-center text-2xl pt-3 pb-3 font-black ">Let's Check!</div>
       </header>
 
 
 
-      <div className="mx-8">
+      <div className="mx-8 ">
 
         <form id='formclear' action="" className='w-full font-black p-10 rounded-lg shadow-xl bg-gradient-to-bl from-blue-200 to-cyan-200'>
 
@@ -225,7 +223,7 @@ const Eligible = () => {
           {/* ------- NAME -------- */}
           <Input 
           lable='Full Name' 
-          placeholder='Ram Thapa' 
+          placeholder='Your Name' 
           value={name} 
           Name='name' 
           setElement={setName} 
@@ -235,7 +233,7 @@ const Eligible = () => {
           {/* ------- EMAIL -------- */}
           <Input 
           lable='Email' 
-          placeholder='ramlovecsit@gmail.com' 
+          placeholder='You Email Address' 
           value={email} 
           Name='email' 
           setElement={setEmail} 
@@ -243,14 +241,7 @@ const Eligible = () => {
 
           </div>
 
-          {/* <div class="flex items-start mb-6">
-            <div class="flex items-center h-5">
-              <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
-            </div>
-            <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
-          </div>
 
-          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> */}
 
 
           {/* ------- 12 YEARS OF SCHOOLING -------- */}
@@ -279,11 +270,11 @@ const Eligible = () => {
           {/* ------- SCIENCE SUBJECTS -------- */}
 
 
-          {board === '1' && faculty === '1' && (
-            <div className="flex justify-center" id='sub'>
-              <div className="p-3 flex flex-col">
+          {schoolingCompleted === 'Yes' && board === '1' && faculty === '1' && (
+            <div className="flex justify-around" id='sub'>
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">English:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={english} onChange={(e) => setEnglish(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={english} onChange={(e) => setEnglish(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -294,12 +285,12 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.english && <p className="text-black font-black">{formErrors.english}</p>}
+                {formErrors.english && <p className="text-center text-black font-black">{formErrors.english}</p>}
               </div>
 
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Nepali:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={nepali} onChange={(e) => setNepali(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={nepali} onChange={(e) => setNepali(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -310,12 +301,12 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.nepali && <p className="text-black font-black">{formErrors.nepali}</p>}
+                {formErrors.nepali && <p className="text-center text-black font-black">{formErrors.nepali}</p>}
               </div>
 
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Mathematics:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={maths} onChange={(e) => setMath(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={maths} onChange={(e) => setMath(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -326,12 +317,12 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.maths && <p className="text-black font-black">{formErrors.maths}</p>}
+                {formErrors.maths && <p className="text-center text-black font-black">{formErrors.maths}</p>}
               </div>
 
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Physics:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={physics} onChange={(e) => setPhysics(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={physics} onChange={(e) => setPhysics(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -342,16 +333,16 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.physics && <p className="text-black font-black">{formErrors.physics}</p>}
+                {formErrors.physics && <p className="text-center text-black font-black">{formErrors.physics}</p>}
               </div>
             </div>
           )}
 
-          {faculty === '1' && board === '1' && (
-            <div className="flex justify-center mb-8" id='sub'>
-              <div className="p-3 flex flex-col">
+          {schoolingCompleted === 'Yes' && faculty === '1' && board === '1' && (
+            <div className="flex justify-around mb-8" id='sub'>
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Chemistry:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={chemistry} onChange={(e) => setChemistry(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={chemistry} onChange={(e) => setChemistry(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -362,12 +353,12 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.chemistry && <p className="text-black font-black">{formErrors.chemistry}</p>}
+                {formErrors.chemistry && <p className="text-center text-black font-black">{formErrors.chemistry}</p>}
               </div>
 
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Computer:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={computer} onChange={(e) => setComputer(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={computer} onChange={(e) => setComputer(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -378,12 +369,12 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.subjects && <p className="text-black font-black">{formErrors.subjects}</p>}
+                {formErrors.subjects && <p className="text-center text-black font-black">{formErrors.subjects}</p>}
               </div>
 
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Biology:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={biology} onChange={(e) => setBiology(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={biology} onChange={(e) => setBiology(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -394,7 +385,7 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.subjects && <p className="text-black font-black">{formErrors.subjects}</p>}
+                {formErrors.subjects && <p className="text-center text-black font-black">{formErrors.subjects}</p>}
               </div>
             </div>
           )}
@@ -406,9 +397,9 @@ const Eligible = () => {
 
           {schoolingCompleted === 'Yes' && board === '1' && faculty === '2' && (
             <div className="flex justify-around" id='sub'>
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Physics:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={physics} onChange={(e) => setPhysics(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={physics} onChange={(e) => setPhysics(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -419,12 +410,12 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.physics && <p className="text-black font-black">{formErrors.physics}</p>}
+                {formErrors.physics && <p className="text-center text-black font-black">{formErrors.physics}</p>}
               </div>
 
-              <div className="p-3 flex flex-col">
+              <div className="pt-3 pb-3 flex flex-col">
                 <label htmlFor="grade-12">Mathematics:</label>
-                <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={maths} onChange={(e) => setMath(e.target.value)}>
+                <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={maths} onChange={(e) => setMath(e.target.value)}>
                   <option value="">Obtained Grade</option>
                   <option value="1">A+</option>
                   <option value="2">A</option>
@@ -435,37 +426,48 @@ const Eligible = () => {
                   <option value="7">D</option>
                   <option value="8">NG</option>
                 </select>
-                {formErrors.maths && <p className="text-black font-black">{formErrors.maths}</p>}
+                {formErrors.maths && <p className="text-center text-black font-black">{formErrors.maths}</p>}
               </div>
 
               <div className="pt-4 pb-4">
                 <p>Have you passed in the rest of the subjects?</p>
-                <div className="flex justify-center gap-14 ">
-                  <div className='w-4 '>
-                    <input
-                      type="radio"
-                      name="technical"
-                      required
-                      value="Yes"
-                      checked={technicalPass === "Yes"}
-                      onChange={() => setTechnicalPass("Yes")}
-                    />
-                    Yes
-                  </div>
-                  <div className='w-4'>
-                    <input
-                      type="radio"
-                      name="technical"
-                      required
-                      value="No"
-                      checked={technicalPass === "No"}
-                      onChange={() => setTechnicalPass("No")}
-                    />
-                    No
 
-                  </div>
+         <ul class=" w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:flex">
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+            type="radio"
+            name=""technical
+            required
+            value="Yes"
+            checked={technicalPass === "Yes"}
+            onChange={() => setTechnicalPass("Yes")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
+
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">Yes</label>
+           </div>
+           </li>
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+            type="radio"
+            name="technical"
+            required
+            value="No"
+            checked={technicalPass === "No"}
+            onChange={() => setTechnicalPass("No")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
+
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">No</label>
+      
                 </div>
-                {formErrors.technicalPass && <p className=" text-black font-black text-sm flex justify-center">{formErrors.technicalPass}</p>}
+                 </li>
+                 </ul>
+                {formErrors.technicalPass && <p className="text-center  text-black font-black text-sm flex justify-center">{formErrors.technicalPass}</p>}
 
               </div>
 
@@ -481,68 +483,92 @@ const Eligible = () => {
             <div>
               <div className="pt-4 pb-4">
                 <p>Have you chosen Physics and Mathematics for your course?</p>
-                <div className="flex justify-center gap-14 ">
-                  <div className='w-4 '>
-                    <input
-                      type="radio"
-                      name="physicschems"
-                      required
-                      value="Yes"
-                      checked={takenPhysics === "Yes"}
-                      onChange={() => setTakenPhysics("Yes")}
-                    />
-                    Yes
-                  </div>
-                  <div className='w-4'>
-                    <input
-                      type="radio"
-                      name="physicschems"
-                      required
-                      value="No"
-                      checked={takenPhysics === "No"}
-                      onChange={() => setTakenPhysics("No")}
-                    />
-                    No
+                   
 
-                  </div>
-                </div>
-                {formErrors.takenPhysics && <p className=" text-black font-black text-sm flex justify-center">{formErrors.takenPhysics}</p>}
-              </div>
+                <ul class=" w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:flex">
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+             type="radio"
+             name="physicschems"
+             required
+             value="Yes"
+             checked={takenPhysics === "Yes"}
+             onChange={() => setTakenPhysics("Yes")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
 
-              {takenPhysics === "Yes" && (
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">Yes</label>
+           </div>
+           </li>
+
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+             type="radio"
+             name="physicschems"
+             required
+             value="No"
+             checked={takenPhysics === "No"}
+             onChange={() => setTakenPhysics("No")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
+
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">No</label>
+           </div>
+           </li>
+        </ul>
+      {formErrors.takenPhysics && <p className="text-center  text-black font-black text-sm flex justify-center">{formErrors.takenPhysics}</p>}
+    </div>
+               
+               
+       {takenPhysics === "Yes" && (
                 <div className="pt-4 pb-4">
                   <p>Have you passed in the rest of the subjects?</p>
-                  <div className="flex justify-center gap-14 ">
-                    <div className='w-4 '>
-                      <input
-                        type="radio"
-                        name="ctevt"
-                        required
-                        value="Yes"
-                        checked={ctevtCompleted === "Yes"}
-                        onChange={() => setCtevtCompleted("Yes")}
-                      />
-                      Yes
-                    </div>
-                    <div className='w-4'>
-                      <input
-                        type="radio"
-                        name="ctevt"
-                        required
-                        value="No"
-                        checked={ctevtCompleted === "No"}
-                        onChange={() => setCtevtCompleted("No")}
-                      />
-                      No
+ 
+           <ul class=" w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:flex">
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+             type="radio"
+             name="ctevt"
+            required
+            value="Yes"
+           checked={ctevtCompleted === "Yes"}
+           onChange={() => setCtevtCompleted("Yes")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
 
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">Yes</label>
+           </div>
+           </li>
 
-                    </div>
-                  </div>
-                  {formErrors.ctevtCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
-                </div>
-              )}
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+             type="radio"
+             name="ctevt"
+            required
+            value="No"
+           checked={ctevtCompleted === "No"}
+           onChange={() => setCtevtCompleted("No")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
 
-            </div>
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">No</label>
+           </div>
+           </li>
+
+        </ul>
+
+     {formErrors.ctevtCompleted && <p className="text-center  text-black font-black text-sm flex justify-center">{formErrors.ctevtCompleted}</p>}
+          </div>
+         )}
+       </div>
 
 
           )}
@@ -554,40 +580,54 @@ const Eligible = () => {
             <div>
               <div className="pt-4 pb-4">
                 <p>Have you chosen Physics and Mathematics for your course?</p>
-                <div className="flex justify-center gap-14 ">
-                  <div className='w-4 '>
-                    <input
-                      type="radio"
-                      name="ctevt"
-                      required
-                      value="Yes"
-                      checked={AlevelCompleted === "Yes"}
-                      onChange={() => setAlevelCompleted("Yes")}
-                    />
-                    Yes
-                  </div>
-                  <div className='w-4'>
-                    <input
-                      type="radio"
-                      name="ctevt"
-                      required
-                      value="No"
-                      checked={AlevelCompleted === "No"}
-                      onChange={() => setAlevelCompleted("No")}
-                    />
-                    No
+                
+                <ul class=" w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:flex">
+           
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+              type="radio"
+              name="ctevt"
+              required
+              value="Yes"
+              checked={AlevelCompleted === "Yes"}
+             onChange={() => setAlevelCompleted("Yes")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
 
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">Yes</label>
+           </div>
+           </li>
 
-                  </div>
-                </div>
-                {formErrors.AlevelCompleted && <p className=" text-black font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
-              </div>
+           <li class="w-full border-b border-gray-200 md:border-b-0 md:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+            <input
+              type="radio"
+              name="ctevt"
+              required
+              value="No"
+              checked={AlevelCompleted === "No"}
+             onChange={() => setAlevelCompleted("No")}
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 "
+            />
+
+            <label 
+            class="w-full py-3 ml-2 text-sm font-semibold text-gray-900">No</label>
+           </div>
+           </li>
+
+           </ul>
+         {formErrors.AlevelCompleted && <p className="text-center  text-black font-black text-sm flex justify-center">{formErrors.AlevelCompleted}</p>}
+      </div>
+
+                
 
 
               {AlevelCompleted === 'Yes' && (
-                <div className=''>
+                <div className='pb-4'>
                   <p>Your Overall Grade:</p>
-                  <select className='rounded border-2 border-slate-300 text-gray-500' id='grade' value={gradeAlevel} onChange={(e) => setGradeAlevel(e.target.value)}>
+                  <select className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2  w-fit' id='grade' value={gradeAlevel} onChange={(e) => setGradeAlevel(e.target.value)}>
                     <option value="">Obtained Grade</option>
                     <option value="1">A*</option>
                     <option value="2">A</option>
@@ -596,9 +636,11 @@ const Eligible = () => {
                     <option value="5">D</option>
                     <option value="6">E</option>
                   </select>
-                  {formErrors.gradeAlevel && <p className=" text-black font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
+                  {formErrors.gradeAlevel && <p className="text-center  text-black font-black text-sm flex justify-center">{formErrors.gradeAlevel}</p>}
                 </div>
               )}
+
+
             </div>
 
           )}
@@ -606,7 +648,6 @@ const Eligible = () => {
 
           <ReCAPTCHA
             sitekey="6LeVBMgoAAAAAP4c26e6ujQxBzbAmTFxSPxYDul3"
-            //  sitekey="6Ld72ccoAAAAAPnR5I3_J8Qm_LlNkRDuhgQAE6vV"
             onChange={onChange} />
 
 
