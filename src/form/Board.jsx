@@ -7,7 +7,7 @@ const Board = ({board, setBoard, formErrors}) => {
     <h3 class="mb-2 font-semibold text-center">Examination Board</h3>
 
    
-    <select id="course" className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2.5 text-center  items-center' required value={board} onChange={(e) => setBoard(e.target.value)}>
+    <select id="course" className='text-gray-900 bg-gray-50 font-semibold rounded-lg text-sm p-2.5 items-center' required value={board} onChange={(e) => setBoard(e.target.value)}>
 
       <option value="" className='font-semibold'>Board</option>
       <option value="1" className='font-semibold'>NEB</option>
