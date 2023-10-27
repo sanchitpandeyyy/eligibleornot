@@ -243,7 +243,7 @@ const Eligible = () => {
           {/* ------- EMAIL -------- */}
           <Input 
           lable='Email' 
-          placeholder='You Email Address' 
+          placeholder='Your Email Address' 
           value={email} 
           Name='email' 
           setElement={setEmail} 
