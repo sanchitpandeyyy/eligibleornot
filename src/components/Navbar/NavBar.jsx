@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from '../../logo.png';
+import Logo from '../../assets/logo.png';
 import LightDark from "./LightDark";
 
 const NavBar = () => {
