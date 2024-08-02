@@ -3,7 +3,6 @@ import './eligible.css';
 import Schooling from '../../form/Schooling';
 import Board from '../../form/Board';
 import Faculty from '../../form/Faculty';
-import ReCAPTCHA from 'react-google-recaptcha';
 import Input from '../../form/Input';
 import NavBar from '../Navbar/NavBar';
 
@@ -32,12 +31,6 @@ const Eligible = () => {
   const [gradeAlevel, setGradeAlevel] = useState('');
   const [formErrors, setFormErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
-  const [recapcha, setRecapcha] = useState(false);
-
-  function onChange(value) {
-    console.log("Captcha value:", value);
-    setRecapcha(true)
-  }
 
 
 
@@ -658,16 +651,11 @@ const Eligible = () => {
           )}
 
 
-          <ReCAPTCHA  className='flex justify-center items-center mt-4'
-            // sitekey="6LeVBMgoAAAAAP4c26e6ujQxBzbAmTFxSPxYDul3"
-               sitekey="6LceV9IoAAAAAEQZTH_x6c8w6_vdLxoijDWLwWbZ"
-            onChange={onChange} />
-
 
           {/* ---------- BUTTON ----------- */}
            <div className='flex justify-center'>
           <button
-            type="button" disabled={!recapcha}
+            type="button" \
             className=" py-2 mt-4 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-xl hover:bg-yellow-400 "
             onClick={handleCheckEligibility}
           >
