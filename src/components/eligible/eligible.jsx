@@ -655,7 +655,7 @@ const Eligible = () => {
           {/* ---------- BUTTON ----------- */}
            <div className='flex justify-center'>
           <button
-            type="button" \
+            type="button" 
             className=" py-2 mt-4 px-4 bg-orange-500 text-white font-semibold rounded-lg shadow-xl hover:bg-yellow-400 "
             onClick={handleCheckEligibility}
           >
